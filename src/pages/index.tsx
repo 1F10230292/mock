@@ -1,57 +1,38 @@
 import styles from './index.module.css';
-
+type Option = { time1: string; time2: string; rushLevel: number };
 const Home = () => {
+  const options: Option[] = [
+    { time1: '8:00', time2: '8:20', rushLevel: 3 },
+    { time1: '8:10', time2: '8:30', rushLevel: 2 },
+    { time1: '8:00', time2: '8:22', rushLevel: 3 },
+    { time1: '8:15', time2: '8:35', rushLevel: 1 },
+    { time1: '7:56', time2: '8:16', rushLevel: 2 },
+  ];
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code} style={{ backgroundColor: '#fafafa' }}>
-            pages/index.js
-          </code>
-        </p>
-
-        <div className={styles.grid}>
-          <a className={styles.card} href="https://nextjs.org/docs">
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a className={styles.card} href="https://nextjs.org/learn">
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a className={styles.card} href="https://github.com/vercel/next.js/tree/master/examples">
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            className={styles.card}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
+      <div className={styles.edge}>
+        <div className={styles.camera} />
+        <div className={styles.display}>
+          <div className={styles.start}>新宿</div>
+          <div className={styles.goal}>赤羽</div>
+          <div className={styles.back}>前</div>
+          <div className={styles.next}>後</div>
+          <div className={styles.box1}>最短</div>
+          <div className={styles.box2}>最安</div>
+          <div className={styles.bar}>
+            <div className={styles.bar2}>{}</div>
+          </div>
+          <div className={styles.options}>
+            {options.map((option, i) => (
+              <div className={styles.option} key={i}>
+                {`${option.time1}~${option.time2}`}
+                <div className={styles.rushLevel}>{option.rushLevel}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <img src="vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        <div className={styles.button} />
+      </div>
     </div>
   );
 };
