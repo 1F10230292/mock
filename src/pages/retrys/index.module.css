@@ -1,0 +1,27 @@
+.body {
+  height: 100vh;
+  aspect-ratio: 9/16;
+  margin: auto;
+  background-color: black;
+  border-radius: 5vh;
+}
+
+.display {
+  height: 80vh;
+  aspect-ratio: 9/16;
+  margin: auto;
+  background-color: white;
+}
+
+.camera {
+  height: 6vh;
+  aspect-ratio: 4/1;
+  margin: auto;
+  background-color: blue;
+}
+
+.display,
+.camera {
+  margin: 5vh;
+  border-radius: 5vh;
+}
